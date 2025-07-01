@@ -1,1 +1,1 @@
-# GenerativeAI-ProdigyInternship
+#GenerativeAI-Prodigy-InfoTech-Internship 
