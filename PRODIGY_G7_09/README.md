@@ -1,44 +1,46 @@
-📚 Markov Chain Text Generation
-🚀 Overview
-This project implements a flexible Markov chain-based text generator in Python.
-It builds a statistical model that predicts the probability of a word (or character) given the previous ones, and uses it to generate new, coherent text sequences.
-The implementation is modular, configurable for any order (unigrams, bigrams, trigrams...) and includes basic visualization of transition patterns.
+# 📘 PRODIGY INFOTECH – Task 03  
+## 🎯 Text Generation with Markov Chains  
 
-✨ Features
-✅ Build Markov chains of any order (n-grams)
-✅ Generate realistic text sequences from learned probabilities
-✅ Easily switch between word-level or character-level modeling
-✅ Visualize next-token frequency distributions and transition sparsity
-✅ Designed to run smoothly in Google Colab
+This project demonstrates how to build a **Markov Chain-based text generator** that learns word transitions from a given corpus and generates new sentences based on learned probabilities.
 
-🔍 How It Works
-Text Preprocessing:
+---
 
-Cleans and tokenizes input text into words (or characters).
+## 🔍 Overview
 
-Training:
+This task involves:
+- 🧮 Building a probabilistic language model using Markov chains
+- 📖 Training it on real-world data (Shakespearean texts)
+- 🤖 Generating new sentences based on learned transitions
+- 📊 Visualizing common word associations
 
-Constructs a Markov chain by mapping (previous N tokens) -> next token transitions.
+The implementation supports configurable **n-gram order** and provides both seeded and random sentence generation capabilities.
 
-Generation:
+---
 
-Samples the next token based on the probabilities observed in training.
+## 💻 Running the Project
 
-Visualization:
+### Prerequisites
+- Google Colab or local Python environment
+- Internet access for dataset downloads
 
-Plots frequency histograms of likely next tokens and shows transition matrix sparsity.
+### Steps
+1. Open `PRODIGY_GA_03.ipynb` in Colab.
+2. Run all cells sequentially.
+3. Observe the generated text and visualizations.
 
-🛠 Tech Stack
-Python 3
+---
 
-matplotlib for plotting
+## 💡 Key Takeaways
 
-Google Colab for easy experimentation
+- Markov chains offer a simple yet effective way to model sequence dependencies.
+- While basic models can't compete with modern transformer-based systems, they serve as a great introduction to language modeling concepts.
+- With extensions like POS tagging and smoothing, these models can become surprisingly expressive.
 
-📂 Usage
-🚀 Running in Colab
-Open Google Colab.
+---
 
-Copy-paste the notebook cells or upload the .ipynb file.
+## 🧩 Future Enhancements
 
-Run each cell sequentially.
+- Add part-of-speech awareness
+- Implement transition smoothing
+- Support character-level generation
+- Build an API around the model
