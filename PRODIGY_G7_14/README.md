@@ -1,64 +1,75 @@
-# 🎨 Neural Style Transfer with TensorFlow
+# 🖼️ PRODIGY INFOTECH – Task 04  
+## 🎯 Image-to-Image Translation with Pix2Pix (cGAN)
 
-## 📝 Overview
-This project demonstrates **Neural Style Transfer (NST)** — a deep learning technique that blends the **content of one image** with the **style of another**, producing a unique image that looks like a piece of art.
-
-Implemented using **TensorFlow** and **TensorFlow Hub**, the model takes a content image (e.g., a photograph) and a style image (e.g., a painting by Kandinsky) and generates a new image combining both.
+This project demonstrates how to perform **image-to-image translation** using a **Conditional Generative Adversarial Network (cGAN)** known as **Pix2Pix**, which learns a mapping from input images to output images [[3]](https://www.tensorflow.org/tutorials/generative/pix2pix?hl=ru).
 
 ---
 
-## ✨ Key Features
-✅ Load and preprocess content and style images  
-✅ Apply a pre-trained NST model from TensorFlow Hub  
-✅ Convert output tensors back to images for visualization  
-✅ Experiment with different content-style combinations  
-✅ Fully executable in Google Colab
+## 🔍 Overview
+
+Pix2Pix is a supervised learning method that uses **paired datasets** to train a generator and discriminator network to transform one type of image into another — such as converting edge maps into realistic photos or label maps into photorealistic scenes.
+
+This task includes:
+- 🧠 Understanding the **U-Net Generator + PatchGAN Discriminator** architecture
+- 📦 Using TensorFlow Datasets for training
+- 🤖 Training a **conditional GAN**
+- 🖼 Visualizing results during and after training
 
 ---
 
-## 🚀 How It Works
+## 💻 Running the Project
 
-1. **Load Images**  
-   - `content_image`: A regular photograph (e.g., Labrador dog)  
-   - `style_image`: A piece of artwork (e.g., Kandinsky painting)
+### Prerequisites
+- Google Colab or local Jupyter environment
+- Internet access for dataset download
 
-2. **Preprocess Images**  
-   - Resize, normalize, and format for model input
-
-3. **Apply Style Transfer**  
-   - Use a pre-trained model from `tensorflow_hub` to apply style onto content
-
-4. **Post-process & Display**  
-   - Convert the output tensor into an image and display the result
+### Steps
+1. Open `Task04_cGAN.ipynb` in Colab.
+2. Run all cells sequentially.
+3. Observe generated outputs and loss curves.
 
 ---
 
-## 🧪 Sample Output
+## 🛠 Features
 
-| Content Image | Style Image | Stylized Output |
-|---------------|-------------|-----------------|
-| 🐶 Labrador   | 🖌️ Kandinsky | 🎨 Dog in Kandinsky Style |
-
----
-
-## 🛠 Tech Stack
-- Python 3  
-- TensorFlow 2.x  
-- TensorFlow Hub  
-- Google Colab  
-- NumPy & Matplotlib
+| Feature                  | Description |
+|--------------------------|-------------|
+| ✅ U-Net Generator       | Encoder-decoder with skip connections |
+| ✅ PatchGAN Discriminator| Classifies realism at patch level |
+| ✅ Paired Dataset        | Uses aligned image pairs for supervision |
+| ✅ L1 + GAN Loss         | Balances realism and structural accuracy |
 
 ---
 
-## 📂 Usage
+## 📈 Results & Observations
 
-### 📁 Open in Google Colab
-1. Upload the notebook `Task05_Style_Transfer.ipynb` to [Google Colab](https://colab.research.google.com/)
-2. Run all cells in order
-3. Replace or add your own images if desired
+| Metric                 | Value                        |
+|------------------------|------------------------------|
+| Input Size             | 256x256                      |
+| Generator Type         | U-Net                        |
+| Discriminator Type     | PatchGAN                     |
+| Dataset Used           | horse2zebra (from TFDS)      |
 
-### 🖼 Change Input Images
-To try different images:
-```python
-content_path = tf.keras.utils.get_file('your_photo.jpg', 'image_url')
-style_path = tf.keras.utils.get_file('your_artwork.jpg', 'style_url')
+---
+
+## 📚 References
+
+- [TensorFlow Pix2Pix Tutorial]( https://www.tensorflow.org/tutorials/generative/pix2pix?hl=ru)
+- [GeeksforGeeks: Conditional GANs]( https://www.geeksforgeeks.org/deep-learning/conditional-generative-adversarial-network/ )
+- [AI Jobs: pix2pix Explained](https://aijobs.net/pix2pix-explained/ )
+
+---
+
+## 📝 Key Takeaways
+
+- Pix2Pix achieves impressive results for many image-to-image tasks.
+- Combining **L1 loss** with **adversarial loss** improves both quality and fidelity.
+- This model can be extended to other domains like medical imaging, map generation, and artistic rendering.
+
+---
+
+## 🧩 Future Enhancements
+
+- Add **CycleGAN** support for unpaired data
+- Integrate **Wasserstein GAN** for more stable training
+- Export and serve the model via **TensorFlow Serving** or **TFLite**
